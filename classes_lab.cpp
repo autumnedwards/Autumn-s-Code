@@ -55,24 +55,22 @@ class C
      int total_points=0; 
      int total_credits=0;
      double semester_gpa;
-     float new_cum;
+     double new_cum;
      double courses_final[6];
      double totalsem=0;
      int sumcred=0;
-     float current_cum_GPA= getcurrent_GPA();
-     int courses_passed= getPassed_courses();
      double previous_cumpoints=0;
      double total;
      int n=6;
      int student_ID=getID();
      
-     double previous_CUM()
+     double previous_CUM()// calculating the previous cumulative points 
      {
        previous_cumpoints= courses_passed * current_cum_GPA;
        return previous_cumpoints;
      }
      
-     double total_sempoints()
+     double total_sempoints()// calculating the total points for the semester
      {
        
        for(int i=0; i<n; i++ )
@@ -81,7 +79,7 @@ class C
        }
             return totalsem;
      }
-     double sem_cred()
+     double sem_cred()// calculating the total credits for the semester
      {
        for(int i=0; i<6; i++)
         {
@@ -90,17 +88,17 @@ class C
         return sumcred;
      }
 
-     double GPAsem()
+     double GPAsem()//calculating the semester gpa
      {
         
-        semester_gpa= totalsem/ sumcred;
+        semester_gpa= totalsem/ sumcred;// algebraic formula used to calculate the semester gpa
         return semester_gpa;
      }
     
-    double CUM()
+    double CUM()//calculating the cumulative gpa
     {
       
-      total= (totalsem+previous_cumpoints)/ (courses_passed+sumcred);
+      total= (totalsem+previous_cumpoints)/ (courses_passed+sumcred);// algebraic equation used to find the final gpa
       return total;
     }   
 };
